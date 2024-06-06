@@ -1,0 +1,22 @@
+body {
+    background-color: brown;
+    text-align: right;
+
+}
+h1 {
+    color:red;
+}
+h2 {
+    color:blue;
+}
+
+#sessao {
+    margin-top: 50px;
+    color:green;
+
+}
+
+.firstClass {
+    color:white;
+    margin: 150px;
+}
