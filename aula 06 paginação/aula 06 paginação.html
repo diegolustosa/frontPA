@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        /* Estilos CSS embutidos (pode ser movido para style.css) */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        .logo {
+            width: 150px; /* ajuste o tamanho conforme necessário */
+            height: auto;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .tab {
+            margin-right: 20px;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+        .tab.active {
+            background-color: #ccc;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .success-box {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="random.png" alt="Logo" class="logo"> <!-- Substitua "logo.png" pelo caminho da sua imagem de logo -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="tabs">
+    <div class="tab active" onclick="openTab(event, 'login')">Login</div>
+    <div class="tab" onclick="openTab(event, 'signup')">Cadastro</div>
+</div>
+
+<div id="login" class="tab-content active">
+    <div id="loginForm">
+        <form class="card" action="#">
+            <div class="card-header">
+                <h2>Login</h2>
+            </div>
+            <div class="card-content">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <input type="submit" value="Entrar">
+                    <a href="#" onclick="showForgotPassword()">Esqueceu a senha?</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="signup" class="tab-content">
+    <div id="signupForm">
+        <form class="card" action="#" onsubmit="return false;">
+            <div class="card-header">
+                <h2>Cadastro</h2>
+            </div>
+            <div class="card-content">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">Senha</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <div>
+                    <button type="button" onclick="submitSignup()">Concluir Cadastro</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="signupSuccess" class="success-box" style="display: none;">
+        Cadastro concluído com êxito!
+    </div>
+</div>
+
+<div id="forgotPassword" class="tab-content" style="display: none;">
+    <div>
+        <h2>Recuperar Senha</h2>
+        <p>Insira seu e-mail para recuperar sua senha:</p>
+        <form class="card" action="#" onsubmit="return false;">
+            <div class="card-content">
+                <div class="form-group">
+                    <label for="emailForgot">E-mail</label>
+                    <input type="email" id="emailForgot" name="emailForgot" required>
+                </div>
+                <div>
+                    <button type="button" onclick="submitForgotPassword()">Recuperar Senha</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    function showForgotPassword() {
+        document.getElementById('forgotPassword').style.display = 'block';
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('signupSuccess').style.display = 'none';
+    }
+
+    function submitSignup() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var newPassword = document.getElementById('newPassword').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+        
+        if (newPassword !== confirmPassword) {
+            alert("As senhas não coincidem!");
+            return;
+        }
+        
+        // Aqui você pode adicionar lógica para processar o cadastro (enviar para backend, por exemplo)
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('signupSuccess').style.display = 'block';
+    }
+
+    function submitForgotPassword() {
+        var email = document.getElementById('emailForgot').value;
+        // Aqui você pode adicionar a lógica para enviar um e-mail de recuperação de senha, por exemplo
+        alert("Um e-mail de recuperação foi enviado para " + email);
+    }
+</script>
+
+</body>
+</html>
