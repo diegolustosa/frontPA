@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título da Página</title>
+</head>
+
+<body>
+    <!-- Conteúdo da página vai aqui -->
+
+
+    <script>
+        let lista = [
+            { nome: 'Marieta', idade: 25 },
+            { nome: 'Julieta' },
+            { nome: 'Incha'}
+        ];
+
+        for (let i = 0; i < lista.length; i++) {
+            if(lista[i].idade == undefined){
+                console.log("O Cliente " + lista[i].nome + "não tem idade!")
+            }else{
+                console.log(lista[i].idade);
+            }
+            
+        }
+
+    </script>
+</body>
+
+</html>
