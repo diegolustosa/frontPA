@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Javascript</p>
+    
+    <script>
+        const thiago = {
+            nome:"Thiago",
+            ra:"123456"
+        }
+        const bruno = {
+            nome: "Bruno",
+            ra:"234567"
+        }
+        const pedro = {
+            nome: "Pedro",
+            ra:"987445"
+        }
+
+        console.log(thiago);
+
+        const alunos = [thiago, bruno, pedro];
+        console.log(alunos);
+
+        alunos.push(thiago);
+
+        console.log(alunos);
+        console.log(alunos.bruno);
+
+        //exemplo for moderno
+        alunos.forEach(function(item) {
+            console.log(item);
+         });
+
+         //exemplo arrow function
+         alunos.forEach((item)=>{
+            console.log(item);
+         });
+
+         const Leonardo = {
+            nome: "Leonardo",
+            materia: "matematica"
+         }
+         const Fernando = {
+            nome: "Fernando",
+            materia: "fisica",
+         }
+         const Alunos = ["Freeza", "Kratos", "Cubano", "Indiano"];
+
+        const professores = [Leonardo, Fernando];
+
+        professores.forEach((item) => {
+            if(item == Fernando) {
+                for(let i = 0; i < Alunos.length; i++) {
+                console.log("O professor é : " + item + "e seus alunos são: " + Alunos);  
+                }
+            }
+        });
+    </script>
+
+<ol start="0">
+    <li>primeiro item</li>  
+    <li>segundo item</li>   
+    <li>terceiro item</li>   
+  </ol>
+</body>
+</html>
