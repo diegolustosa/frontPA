@@ -19,17 +19,11 @@ const alunos = [
 ]
 alunos.forEach((item) => {
     const li = window.document.createElement("li");
-    li.innerHTML = item.li;
-    console.log(li);
+    li.innerHTML = `${item.nome} <br> ra: ${item.ra}`;
+    
     ol.appendChild(li);
+    console.log(li);
 });
-
-
-ol.innerHTML = "Start";
-li.innerHTML = "exec1";
-
-
-
 
 
 h1.innerHTML = "ola mundo!";

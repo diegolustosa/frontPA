@@ -57,7 +57,7 @@
         professores.forEach((item) => {
             if(item == Fernando) {
                 for(let i = 0; i < Alunos.length; i++) {
-                console.log("O professor é : " + item + "e seus alunos são: " + Alunos);  
+                console.log("O professor é : " + item.nome + " e seus alunos são: " + Alunos.join(", "));  
                 }
             }
         });
