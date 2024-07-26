@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<link rel="stylesheet" href="./aula10calc.css">
+</head>
+<body>
+     <!-- Contêiner dos números e operadores -->
+  <div class="button-container">
+    <div class="button-box" onclick="updateTextarea('1')">1</div>
+    <div class="button-box" onclick="updateTextarea('2')">2</div>
+    <div class="button-box" onclick="updateTextarea('3')">3</div>
+    <div class="button-box" onclick="updateTextarea('4')">4</div>
+    <div class="button-box" onclick="updateTextarea('5')">5</div>
+    <div class="button-box" onclick="updateTextarea('6')">6</div>
+    <div class="button-box" onclick="updateTextarea('7')">7</div>
+    <div class="button-box" onclick="updateTextarea('8')">8</div>
+    <div class="button-box" onclick="updateTextarea('9')">9</div>
+    <div class="button-box" onclick="updateTextarea('0')">0</div>
+    <div class="button-box" onclick="updateTextarea('+')">+</div>
+    <div class="button-box" onclick="updateTextarea('-')">-</div>
+    <div class="button-box" onclick="updateTextarea('*')">*</div>
+    <div class="button-box" onclick="updateTextarea('/')">/</div>
+    <div class="button-box" onclick="updateTextarea('.')">.</div>
+  </div>
+
+ <!-- Textarea para exibir os números e operadores -->
+ <textarea id="numberDisplay" class="message-box" readonly></textarea>
+
+ <!-- Botão de calcular -->
+ <button class="calculate-button" onclick="calculate()">Calcular</button>
+
+   <!-- Botão de limpar -->
+  <button class="action-button clear-button" onclick="clearTextarea()">Limpar</button>
+
+
+<script src="./aula10calc.js"></script>
+</body>
+
+</html>
