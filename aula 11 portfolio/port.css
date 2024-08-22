@@ -1,22 +1,16 @@
+/* Estilos Gerais */
 body {
-    background-color: black;
-    background: linear-gradient(to right, rgb(241, 43, 43), rgb(137, 21, 21), rgb(49, 2, 2));
-    background-image: url('./imgBank/flag.png');
-    background-repeat: no-repeat;
+    background: url('./imgBank/flag.png') no-repeat center center fixed;
     background-size: cover;
-    /* background-position: center center; */
+    background-color: black; /* Cor de fundo de fallback para quando a imagem não carrega */
+    margin: 0;
+    padding: 0;
 }
 
-#uniq {
+#uniq, .all {
     width: 150px;
     border-radius: 100%;
 }
-
-.all {
-    width: 150px;
-    border-radius: 100%;
-}
-
 
 .dropdown-content {
     font-family: monospace;
@@ -24,7 +18,7 @@ body {
     display: none;
     border-style: outset;
     border-radius: 10%;
-    position: relative;
+    position: absolute;
     background-color: #c90202;
     min-width: 160px;
     height: 380%;
@@ -33,7 +27,6 @@ body {
     padding: 30px 50px;
     z-index: 1;
     top: 60%;
-    position: absolute;
     text-align: center;
 }
 
@@ -52,10 +45,9 @@ body {
     font-size: small;
 }
 
-.topo {
+.topo, #exp {
     width: 100px;
     height: 100px;
-
     font-family: monospace;
     font-size: larger;
     color: whitesmoke;
@@ -63,18 +55,8 @@ body {
 
 #exp {
     padding-left: 10%;
-    width: 100px;
-    height: 100px;
     display: flex;
     text-align: left;
-    font-family: monospace;
-    font-size: larger;
-    color: whitesmoke
-}
-
-body {
-    margin: 0px;
-    padding: 0px;
 }
 
 .menu {
@@ -126,5 +108,67 @@ body {
     height: 1rem;
     margin-top: 5px;
     display: flex;
+}
+
+/* Media Queries */
+
+/* Para dispositivos menores que 768px de largura (tablets) */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+    }
     
+    .textcenter {
+        left: auto;
+        bottom: auto;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    #exp {
+        padding-left: 0;
+        width: 100%;
+        height: auto;
+        display: block;
+        text-align: center;
+    }
+
+    .item {
+        margin: 5px;
+    }
+
+    .dropdown-content {
+        min-width: 120px;
+        padding: 20px;
+    }
+}
+
+/* Para dispositivos menores que 480px de largura (celulares) */
+@media (max-width: 480px) {
+    #uniq, .all {
+        width: 100px;
+    }
+
+    .topo, #exp {
+        width: 80px;
+        height: 80px;
+        font-size: small;
+    }
+
+    .dropdown-content {
+        min-width: 100px;
+        padding: 15px;
+        height: auto;
+    }
+
+    .seed {
+        width: 25%;
+    }
+
+    .ground {
+        height: 0.8rem;
+        margin-top: 2px;
+    }
 }
